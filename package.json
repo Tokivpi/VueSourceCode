@@ -1,0 +1,19 @@
+{
+  "main": "index.js",
+  "scripts": {
+    "dev": "rollup -cw"
+  },
+  "license": "ISC",
+  "name": "Vue源码解析",
+  "version": "1.0.0",
+  "devDependencies": {
+    "@babel/core": "^7.21.8",
+    "@babel/preset-env": "^7.21.5",
+    "prettier": "^2.8.8",
+    "rollup": "^2.79.1",
+    "rollup-plugin-babel": "^4.4.0"
+  },
+  "dependencies": {
+    "@rollup/plugin-node-resolve": "^15.0.2"
+  }
+}
