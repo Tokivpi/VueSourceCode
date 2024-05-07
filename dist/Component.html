@@ -5,29 +5,26 @@
   <title>Title</title>
 </head>
 <body>
-<div id="app">
-  <my-button></my-button>
+<div>
   <my-button></my-button>
 </div>
 <div id="root"></div>
 <script src="vue.js"></script>
 <script>
+<!--  渲染可知：当全局组件和根组件的子组件重名时，会先渲染子组件，因为子组件挂载的实例对象上，而全局组件挂载到原型对象上-->
   Vue.component('my-button', {
     template: `<button>全局组件</button>`
   })
+
   let Sub = Vue.extend({
-    template: `<div>子组件{{name}}<my-button></my-button></div>`,
-    data(){
-      return{
-        name:"1"
+    template: `<div>根组件<my-button></my-button></div>`,
+    components: {
+      'my-button': {
+        template: `<button>根组件的子组件</button>`
       }
-    },
-    // components: {
-    //   'my-button': {
-    //     template: `<button>Vue点击事件</button>`
-    //   }
-    // }
+    }
   })
+
   new Sub().$mount("#root")
 </script>
 </body>

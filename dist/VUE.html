@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <div>姓名:{{fullName}}</div>
+</div>
+<script src="vue.js"></script>
+<script>
+  const vm=new Vue({
+    el:'#app',
+    data() {
+      return {
+        firstName: '张',
+        lastName: "三"
+      }
+    },
+    computed:{
+      fullName(){
+        return this.firstName+this.lastName
+      }
+    },
+    watch:{
+      firstName(oldVal,newVal){
+        console.log(oldVal,newVal)
+      }
+    }
+  })
+  setTimeout(()=>{
+    vm._data.firstName="李"
+  },1000)
+
+</script>
+</body>
+<script></script>
+</html>

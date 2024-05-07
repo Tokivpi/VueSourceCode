@@ -1,8 +1,6 @@
 import { observe } from "./observe";
 import Watcher, { nextTick } from "./observe/watcher";
-import watcher from "./observe/watcher";
 import Dep from "./observe/dep";
-import Vue from "./index";
 
 export function initState(vm) {
   const options = vm.$options;
@@ -24,7 +22,6 @@ function initWatch(vm) {
   let watch = vm.$options.watch;
   for (let key in watch) {
     const handler = watch[key];
-    console.log(Array.isArray(handler));
     if (Array.isArray(handler)) {
       for (let i = 0; i < handler.length; i++) {
         createWatcher(vm, key, handler[i]);
