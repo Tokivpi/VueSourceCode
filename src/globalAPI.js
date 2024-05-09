@@ -16,6 +16,7 @@ export function initGlobalAPI(Vue) {
     }
     Sub.prototype = Object.create(Vue.prototype); //Sub.prototype.__proto__===Vue.prototype
     Sub.prototype.constructor = Sub;
+    // 组件的options会和更组件进行整合，这也就是全局mixin的实现原理
     Sub.options = mergeOptions(Vue.options, options);
     return Sub;
   };
